@@ -1,0 +1,8 @@
+.element {
+    display: flex;
+    flex-wrap: wrap;
+    width: 282px;
+    border-radius: 10px;
+    background-color: #fff;
+    justify-content: space-between;
+}
