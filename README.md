@@ -4,4 +4,4 @@
 
 Есть возможность открыть окно оверлей и написать в нём текс
 
-Git Pages: в будущих улучшениях проекта
+Git Pages: https://dragon32700.github.io/mesto-project-bootcamp/

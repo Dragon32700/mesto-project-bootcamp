@@ -25,35 +25,41 @@
         <section class="elements">
             <article class="element">
                 <img alt="Здание на горе" class="element__image" src="./image/kirill-pershin-1088404-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Карачаевск</h2>
                 <button class="element__heart" type="button"></button>
             </article>
             <article class="element">
                 <img alt="Поле в конце которого гора" class="element__image"
                     src="./image/kirill-pershin-1404681-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Гора Эльбрус</h2>
                 <button class="element__heart" type="button"></button>
             </article>
             <article class="element">
                 <img alt="Горы на одной из которых снег" class="element__image"
                     src="./image/kirill-pershin-1556355-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Домбай</h2>
                 <button class="element__heart" type="button"></button>
             </article>
             <article class="element">
                 <img alt="Поле в конце которого гора" class="element__image"
                     src="./image/kirill-pershin-1404681-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Гора Эльбрус</h2>
                 <button class="element__heart" type="button"></button>
             </article>
             <article class="element">
                 <img alt="Горы на одной из которых снег" class="element__image"
                     src="./image/kirill-pershin-1556355-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Домбай</h2>
                 <button class="element__heart" type="button"></button>
             </article>
             <article class="element">
                 <img alt="Здание на горе" class="element__image" src="./image/kirill-pershin-1088404-unsplash.png">
+                <button class="element__bin" type="reset"></button>
                 <h2 class="element__title">Карачаевск</h2>
                 <button class="element__heart" type="button"></button>
             </article>
@@ -64,16 +70,27 @@
     </footer>
     <div class="overlay">
     </div>
-    <div class="edit-form">
-        <p class="edit-form__title">Редактировать профиль</p>
-        <div class="edit-form__field edit-form__field_type_name">
-            <input type="text" placeholder="Имя" class="edit-form__input">
+    <div class="edit-form" id="editForm">
+        <p class="edit-form__title" id="editFormTitle">Редактировать профиль</p>
+        <div class="edit-form__field edit-form__field_type_name" id="editTypeName">
+            <input type="text" placeholder="Имя" class="edit-form__input" id="editName">
         </div>
-        <div class="edit-form__field edit-form__field_type_description">
-            <input type="text" placeholder="Профессия" class="edit-form__input">
+        <div class="edit-form__field edit-form__field_type_description" id="editTypeDescription">
+            <input type="text" placeholder="Профессия" class="edit-form__input" id="editDescription">
         </div>
-        <button class="edit-form__save" type="submit">Сохранить</button>
-        <button class="edit-form__close" type="reset"></button>
+        <button class="edit-form__save" type="submit" id="editFormSave">Сохранить</button>
+        <button class="edit-form__close" type="reset" id="editFormClose"></button>
+    </div>
+    <div class="edit-form" id="AddForm">
+        <p class="edit-form__title" id="AddFormTitle">Новое место</p>
+        <div class="edit-form__field edit-form__field_type_name" id="AddTypeName">
+            <input type="text" placeholder="Название" class="edit-form__input" id="AddName">
+        </div>
+        <div class="edit-form__field edit-form__field_type_description" id="AddTypeDescription">
+            <input type="text" placeholder="Ссылка на картинку" class="edit-form__input" id="AddDescription">
+        </div>
+        <button class="edit-form__save" type="submit" id="AddFormSave">Сохранить</button>
+        <button class="edit-form__close" type="reset" id="AddFormClose"></button>
     </div>
     <script src="./scripts/index.js"></script>
 </body>

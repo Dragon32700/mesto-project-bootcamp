@@ -1,0 +1,18 @@
+.element__bin {
+    position: absolute;
+    width: 18px;
+    height: 20px;
+    z-index: 1;
+    right: 20px;
+    top: 20px;
+    background-image: url(../../../image/bin.svg);
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.element__bin:hover {
+    opacity: 0.6;
+}
