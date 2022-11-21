@@ -59,11 +59,17 @@ AddCloseButton.addEventListener('click', function () {
     openAddForm(false)
 })
 
-AddSaveButton.addEventListener('click', add_profile)
+AddSaveButton.addEventListener('click', function () {
+    const name = document.getElementById('AddName');
+    const description = document.getElementById('AddDescription');
+
+    add_profile(name.value, description.value);
+
+    name.value = "";
+    description.value = "";
+})
 
 function openAddForm(state = false) {
-    const name = document.getElementById('name');
-    const description = document.getElementById('description');
     if (state) {
         overlay.classList += " _visible"
         Add_form.classList += " _visible"
@@ -73,23 +79,33 @@ function openAddForm(state = false) {
     }
 }
 
-function add_profile() {
-    const name = document.getElementById('AddName');
-    const description = document.getElementById('AddDescription');
-    elements.insertAdjacentHTML('afterbegin', `
-    <article class="element">
-    <img alt="добавленная пользователем" class="element__image" src="${description.value}">
-    <button class="element__bin" type="reset"></button>
-    <h2 class="element__title">${name.value}</h2>
-    <button class="element__heart" type="button"></button>
-    </article>`);
-    
-    name.value = "";
-    description.value = "";
+function add_profile(nameValue, descriptionValue) {
+    const elementTamplate = document.getElementById('element-template').content;
+    const elementEl = elementTamplate.querySelector('.element').cloneNode(true);
+
+    elementEl.querySelector('.element__title').textContent = nameValue;
+    elementEl.querySelector('.element__image').src = descriptionValue;
+    elements.prepend(elementEl);
 }
 
-trashButton.target.addEventListener('click', removeElement);
+Array.from(element).forEach(function (element) {
+    element.addEventListener('click', removeElement);
+});
 
-function removeElement() {
-    removeElement(trashButton)
+function removeElement(event) {
+    if (event.target.classList.contains('element__bin')) {
+        event.currentTarget.remove();
+    }
+}
+
+Array.from(heartButton).forEach(function (element) {
+    element.addEventListener('click', likeElement);
+});
+
+function likeElement(event) {
+    if (event.target.classList.contains('element__heart')) {
+        event.currentTarget.classList += " _active";
+    } else {
+        event.currentTarget.classList.remove("_active");
+    }
 }
