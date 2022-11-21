@@ -14,7 +14,7 @@ const trashButton = page.querySelectorAll('.element__bin')
 const profile_info = page.querySelector('.profile__info');
 const elements = page.querySelector('.elements');
 const element = page.querySelectorAll('.element');
-const image = page.querySelector('.element__image')
+const image = page.querySelectorAll('.buttonImage')
 const fullImage = page.querySelector('.fullImage');
 
 button.addEventListener('click', function () {
@@ -121,7 +121,7 @@ function likeElement(event) {
     }
 }
 
-Array.from(image).forEach(function (element) {  
+Array.from(image).forEach(function (element) {
     element.addEventListener('click', openImageForm);
 })
 
@@ -133,6 +133,6 @@ function openImageForm() {
     const imageFull = document.getElementById('imageFull');
     const title = document.getElementById('titleFull');
 
-    title.textContent = title.value;
-    imageFull.src = image.value;
+    title.textContent = 'dsa';
+    imageFull.src = image;
 }
