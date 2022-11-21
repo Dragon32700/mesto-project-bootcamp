@@ -86,6 +86,9 @@ function add_profile(nameValue, descriptionValue) {
     elementEl.querySelector('.element__title').textContent = nameValue;
     elementEl.querySelector('.element__image').src = descriptionValue;
     elements.prepend(elementEl);
+    elements.appendChild(elementEl)
+    console.log(element)
+    console.log(elements)
 }
 
 Array.from(element).forEach(function (element) {
@@ -104,8 +107,6 @@ Array.from(heartButton).forEach(function (element) {
 
 function likeElement(event) {
     if (event.target.classList.contains('element__heart')) {
-        event.currentTarget.classList += " _active";
-    } else {
-        event.currentTarget.classList.remove("_active");
+        event.currentTarget.classList.toggle('_active');
     }
 }
