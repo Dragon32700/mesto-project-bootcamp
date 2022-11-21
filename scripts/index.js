@@ -8,11 +8,14 @@ const editSaveButton = document.getElementById('editFormSave');
 const Add_form = document.getElementById('AddForm');
 const AddCloseButton = document.getElementById('AddFormClose');
 const AddSaveButton = document.getElementById('AddFormSave');
+const imageCloseButton = document.getElementById('imageFormClose')
 const heartButton = page.querySelectorAll('.element__heart');
 const trashButton = page.querySelectorAll('.element__bin')
 const profile_info = page.querySelector('.profile__info');
 const elements = page.querySelector('.elements');
 const element = page.querySelectorAll('.element');
+const image = page.querySelectorAll('.buttonImage')
+const fullImage = page.querySelector('.fullImage');
 
 button.addEventListener('click', function () {
     openEditForm(true)
@@ -85,9 +88,13 @@ function add_profile(nameValue, descriptionValue) {
 
     elementEl.querySelector('.element__title').textContent = nameValue;
     elementEl.querySelector('.element__image').src = descriptionValue;
+    elementEl.querySelector('.element__heart').addEventListener('click', function (element){
+        element.target.classList.toggle('_active')
+    });
+    elementEl.querySelector('.element__bin').addEventListener('click', function (element){
+        element.target.parentNode.remove();
+    });
     elements.prepend(elementEl);
-    elements.appendChild(elementEl)
-    console.log(element)
     console.log(elements)
 }
 
@@ -106,6 +113,20 @@ Array.from(heartButton).forEach(function (element) {
 });
 
 function likeElement(event) {
+    if (event.target.classList.contains('element__heart')) {
+        event.currentTarget.classList.toggle('_active');
+    }
+}
+
+Array.from(image).forEach(function (element) {
+    element.addEventListener('click', openImageForm);
+})
+
+imageCloseButton.addEventListener('click', function () {
+    openImageForm
+})
+
+function openImageForm(event) {
     if (event.target.classList.contains('element__heart')) {
         event.currentTarget.classList.toggle('_active');
     }
