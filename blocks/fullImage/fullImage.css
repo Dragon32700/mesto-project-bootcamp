@@ -1,0 +1,14 @@
+.fullImage {
+    position: fixed;
+    display: none;
+    z-index: 2;
+}
+
+.fullImage._visible {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 180px);
+    top: 90px;
+    right: 50%;
+    justify-content: space-between;
+}
