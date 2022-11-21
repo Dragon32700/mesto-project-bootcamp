@@ -35,3 +35,7 @@
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
+@import url(../blocks/fullImage/fullImage.css);
+@import url(../blocks/fullImage/__title/fullImage__title.css);
+@import url(../blocks/fullImage/__image/fullImage__image.css);
