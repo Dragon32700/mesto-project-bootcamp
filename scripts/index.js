@@ -1,11 +1,11 @@
 const page = document.querySelector('.page');
-const button = page.querySelector('.profile__button');
+const profileEditButton = page.querySelector('.profile__button');
 const addButton = page.querySelector('.profile__add-button');
 const overlay = page.querySelector('.overlay');
-const edit_form = document.getElementById('editForm');
+const editForm = document.getElementById('editForm');
 const editCloseButton = document.getElementById('editFormClose');
 const editSaveButton = document.getElementById('editFormSave');
-const Add_form = document.getElementById('AddForm');
+const AddForm = document.getElementById('AddForm');
 const AddCloseButton = document.getElementById('AddFormClose');
 const AddSaveButton = document.getElementById('AddFormSave');
 const imageCloseButton = document.getElementById('imageFormClose')
@@ -17,7 +17,7 @@ const element = page.querySelectorAll('.element');
 const image = page.querySelectorAll('.buttonImage')
 const fullImage = page.querySelector('.fullImage');
 
-button.addEventListener('click', function () {
+profileEditButton.addEventListener('click', function () {
     openEditForm(true)
 })
 
@@ -30,10 +30,10 @@ editSaveButton.addEventListener('click', edit_profile)
 function openEditForm(state = false) {
     if (state) {
         overlay.classList += " _visible"
-        edit_form.classList += " _visible"
+        editForm.classList += " _visible"
     } else {
         overlay.classList.remove("_visible")
-        edit_form.classList.remove("_visible")
+        editForm.classList.remove("_visible")
     }
 }
 
@@ -42,14 +42,8 @@ function edit_profile() {
     const description = document.getElementById('editDescription');
     const title = document.querySelector('.profile__title')
     const subtitle = document.querySelector('.profile__subtitle')
-    title.remove();
-    subtitle.remove();
-
-    profile_info.insertAdjacentHTML('afterbegin', `
-    <p class="profile__title">${name.value}</p>
-    <p class="profile__subtitle">${description.value}</p>
-  `);
-
+    title.textContent = name.value;
+    subtitle.textContent = description.value;
     name.value = "";
     description.value = "";
 }
@@ -75,10 +69,10 @@ AddSaveButton.addEventListener('click', function () {
 function openAddForm(state = false) {
     if (state) {
         overlay.classList += " _visible"
-        Add_form.classList += " _visible"
+        AddForm.classList += " _visible"
     } else {
         overlay.classList.remove("_visible")
-        Add_form.classList.remove("_visible")
+        AddForm.classList.remove("_visible")
     }
 }
 
