@@ -1,6 +1,7 @@
 .popup__save {
     background-color: #000000;
     color: white;
+    border: 1px solid #000000;
     border-radius: 2px;
     width: 358px;
     height: 50px;
@@ -15,8 +16,16 @@
     margin: 0;
     margin-bottom: 37px;
     margin-top: 42px;
+    cursor: pointer;
 }
 
 .popup__save:hover {
     opacity: 0.8;
+}
+
+.popup__save._disabled {
+    cursor: default;
+    color: rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }

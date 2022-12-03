@@ -1,14 +1,21 @@
 .fullImage {
     position: fixed;
-    display: none;
+    display: flex;
     z-index: 2;
+    max-width: 75vw;
+    max-height: 75vh;
+    height: calc(100% - 180px);
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
-.fullImage._visible {
-    display: flex;
+.fullImage._opened {
+    visibility: visible;
+    opacity: 1;
     flex-direction: column;
-    height: calc(100% - 180px);
-    top: 90px;
-    right: 50%;
-    justify-content: space-between;
 }

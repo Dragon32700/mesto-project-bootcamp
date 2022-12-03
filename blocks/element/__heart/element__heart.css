@@ -9,6 +9,7 @@
     margin-top: 30px;
     margin-right: 20px;
     padding: 0;
+    cursor: pointer;
 }
 
 .element__heart:hover {

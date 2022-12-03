@@ -6,7 +6,7 @@
 
 @media screen and (max-width: 596px) {
     .header__logo{
-        background-image: url(../../../image/logo-mobile.svg);
+        background-size: 28%;
         min-height: 25px;
         margin-left: 27px;
     }

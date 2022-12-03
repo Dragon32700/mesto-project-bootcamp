@@ -10,6 +10,7 @@
     grid-column: 2/3;
     margin-top: 15px;
     background-color: rgba(0,0,0,0);
+    cursor: pointer;
 }
 
 .profile__button:hover {

@@ -11,6 +11,7 @@
     grid-column: 3/4;
     margin: 0;
     margin-left: 244px;
+    cursor: pointer;
 }
 
 .profile__add-button:hover {

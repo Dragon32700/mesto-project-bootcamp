@@ -13,9 +13,7 @@
     padding-left: 36px;
     padding-right: 36px;
     z-index: 2;
-    display: none;
-}
-
-.popup._visible {
-    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
 }

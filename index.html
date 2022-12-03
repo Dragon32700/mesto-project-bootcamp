@@ -23,54 +23,6 @@
             <button class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Здание на горе" class="element__image"
-                        src="./image/kirill-pershin-1088404-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Карачаевск</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Поле в конце которого гора" class="element__image"
-                        src="./image/kirill-pershin-1404681-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Горы на одной из которых снег" class="element__image"
-                        src="./image/kirill-pershin-1556355-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Домбай</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Поле в конце которого гора" class="element__image"
-                        src="./image/kirill-pershin-1404681-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Гора Эльбрус</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Горы на одной из которых снег" class="element__image"
-                        src="./image/kirill-pershin-1556355-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Домбай</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
-            <article class="element">
-                <button class="element__image buttonImage"  type="button">
-                    <img alt="Здание на горе" class="element__image"
-                        src="./image/kirill-pershin-1088404-unsplash.png"></button>
-                <button class="element__bin" type="reset"></button>
-                <h2 class="element__title">Карачаевск</h2>
-                <button class="element__heart" type="button"></button>
-            </article>
         </section>
     </main>
     <footer class="footer">
@@ -78,35 +30,43 @@
     </footer>
     <div class="overlay">
     </div>
-    <div class="popup" id="editForm">
-        <p class="popup__title" id="editFormTitle">Редактировать профиль</p>
-        <div class="popup__field popup__field_type_name" id="editTypeName">
-            <input type="text" placeholder="Имя" class="popup__input" id="editName">
-        </div>
-        <div class="popup__field popup__field_type_description" id="editTypeDescription">
-            <input type="text" placeholder="Профессия" class="popup__input" id="editDescription">
-        </div>
-        <button class="popup__save" type="submit" id="editFormSave">Сохранить</button>
-        <button class="popup__close" type="reset" id="editFormClose"></button>
+    <div class="popup editForm">
+        <form name="FormEdit">
+            <p class="popup__title editFormTitle">Редактировать профиль</p>
+            <div class="popup__field editTypeName">
+                <input type="text" placeholder="Имя" class="popup__input editName">
+                <span class="popup__input_error" minlength="7">Вы пропустили это поле.</span>
+            </div>
+            <div class="popup__field editTypeDescription">
+                <input type="text" placeholder="Профессия" class="popup__input editDescription">
+                <span class="popup__input_error" minlength="7">Вы пропустили это поле.</span>
+            </div>
+            <button class="popup__save  editFormSave _disabled" type="submit" disabled="true">Сохранить</button>
+            <button class="popup__close editFormClose" type="reset" ></button>
+        </form>
     </div>
-    <div class="popup" id="AddForm">
-        <p class="popup__title" id="AddFormTitle">Новое место</p>
-        <div class="popup__field popup__field_type_name" id="AddTypeName">
-            <input type="text" placeholder="Название" class="popup__input" id="AddName">
-        </div>
-        <div class="popup__field popup__field_type_description" id="AddTypeDescription">
-            <input type="text" placeholder="Ссылка на картинку" class="popup__input" id="AddDescription">
-        </div>
-        <button class="popup__save" type="submit" id="AddFormSave">Сохранить</button>
-        <button class="popup__close" type="reset" id="AddFormClose"></button>
+    <div class="popup AddForm">
+        <form name="FormAdd" novalidate>
+            <p class="popup__title AddFormTitle">Новое место</p>
+            <div class="popup__field AddTypeName">
+                <input type="text" placeholder="Название" class="popup__input AddName">
+                <span class="popup__input_error" minlength="7">Вы пропустили это поле.</span>
+            </div>
+            <div class="popup__field AddTypeDescription">
+                <input type="url" placeholder="Ссылка на картинку" class="popup__input AddDescription" id="popup__input">
+                <span class="popup__input_error">Введите адрес сайта.</span>
+            </div>
+            <button class="popup__save  AddFormSave _disabled" type="submit" disabled="true">Создать</button>
+            <button class="popup__close AddFormClose" type="reset"></button>
+        </form>
     </div>
-    <div class="fullImage">
-        <button class="popup__close" type="reset" id="imageFormClose"></button>
-        <img alt="Добавленна пользователем" id="imageFull" class="fullImage__image" src="">
-        <h2 class="fullImage__title" id="titleFull">d</h2>
+    <div class="popaр fullImage">
+        <button class="popup__close imageFormClose" type="reset"></button>
+        <img alt="Добавленна пользователем" class="fullImage__image imageFull" src="">
+        <h2 class="fullImage__title titleFull"></h2>
     </div>
 
-    <template id="element-template">
+    <template class="element-template">
         <article class="element">
             <img alt="Добавленна пользователем" class="element__image" src="">
             <button class="element__bin" type="reset"></button>

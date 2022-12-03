@@ -1,13 +1,12 @@
 .overlay {
     position: fixed;
-    background-color: black;
-    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     min-height: 100vh;
     z-index: 1;
     display: none;
 }
 
-.overlay._visible {
+.overlay._opened {
     display: block;
 }
