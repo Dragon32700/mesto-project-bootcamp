@@ -102,19 +102,8 @@ function addProfile(nameValue, descriptionValue) {
 }
 
 FormAdd.addEventListener('input', function (evt) {
-    if (nameAdd.value.length > 0) {
-        errorMessage[2].textContent = '';
-    } else {
-        errorMessage[2].textContent = 'Вы пропустили это поле.';
-    }
-    if (descriptionAdd.value.length > 0 && descriptionAdd.value === 'https:') {
-        errorMessage[3].textContent = '';
-    }
-    else {
-        errorMessage[3].textContent = 'Введите адрес сайта.';
-    }
-    if (
-        errorMessage[3].textContent === '' && errorMessage[2].textContent === '') {
+    if (nameAdd.value.length > 0 && descriptionAdd.value.length > 0) 
+    {
         AddsetSubmitButtonState(true)
     } else {
         AddsetSubmitButtonState(false)
@@ -122,19 +111,7 @@ FormAdd.addEventListener('input', function (evt) {
 });
 
 FormEdit.addEventListener('input', function (evt) {
-    if (nameEdit.value.length > 0) {
-        errorMessage[0].textContent = '';
-    } else {
-        errorMessage[0].textContent = 'Вы пропустили это поле.';
-    }
-    if (descriptionEdit.value.length > 0) {
-        errorMessage[1].textContent = '';
-    }
-    else {
-        errorMessage[1].textContent = 'Вы пропустили это поле.';
-    }
-    if (
-        errorMessage[1].textContent === '' && errorMessage[0].textContent === '') {
+    if (nameEdit.value.length > 0 && descriptionEdit.value.length > 0) {
         EditsetSubmitButtonState(true)
     } else {
         EditsetSubmitButtonState(false)
