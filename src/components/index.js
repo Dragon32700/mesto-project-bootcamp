@@ -67,6 +67,8 @@ page.addEventListener('keydown', (evt) => {
         ClosePopup(editForm);
         FormEdit.reset();
         EditsetSubmitButtonState(false);
+
+        closeImageForm();
     }
 })
 
@@ -108,10 +110,32 @@ function addProfile(nameValue, descriptionValue) {
         element.target.parentNode.remove();
     });
     Array.from(image).forEach(function (element) {
-        element.addEventListener('click', openImageForm);
+        element.addEventListener('click', function() {
+            openImageForm(element);
+        });
     })
     elements.prepend(elementEl);
     ClosePopup(AddForm);
+}
+
+imageCloseButton.addEventListener('click', closeImageForm)
+
+function closeImageForm() {
+    overlay.classList.remove('_opened');
+    fullImage.classList.remove('_opened');
+}
+
+function openImageForm(element) {
+    const titleName = element.querySelector('.element__title').textContent;
+    const image = element.querySelector('.element__image').src;
+    overlay.classList.toggle('_opened');
+    fullImage.classList.toggle('_opened');
+    const imageFull = page.querySelector('.imageFull');
+    const title = page.querySelector('.titleFull');
+
+    title.textContent = titleName;
+    imageFull.src = image;
+    imageFull.alt = "всарвленная пользователем";
 }
 
 FormAdd.addEventListener('input', function (evt) {
@@ -168,20 +192,6 @@ function likeElement(event) {
     }
 }
 
-imageCloseButton.addEventListener('click', openImageForm)
-
-function openImageForm() {
-    const titleName = page.querySelector('.element__title').textContent;
-    overlay.classList.toggle('_opened');
-    fullImage.classList.toggle('_opened');
-    const imageFull = page.querySelector('.imageFull');
-    const title = page.querySelector('.titleFull');
-
-    title.textContent = titleName;
-    imageFull.src = image;
-    imageFull.alt = "всарвленная пользователем";
-}
-
 function createElements() {
     let nameCreate = "";
     let srcCreate = "";
@@ -210,7 +220,7 @@ function createElements() {
             element.target.parentNode.remove();
         });
         elementEl.querySelector('.element__image').addEventListener('click', function (element) {
-            element.target.addEventListener('click', openImageForm);
+            openImageForm(element.path[1]);
         })
         elements.prepend(elementEl);
     }

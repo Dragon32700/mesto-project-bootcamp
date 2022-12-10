@@ -1,3 +1,5 @@
 .fullImage__image {
-    object-fit: cover;
+    object-fit: fill;
+    min-width: 75vw;
+    min-height: 75vh;
 }
