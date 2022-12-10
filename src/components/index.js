@@ -1,3 +1,8 @@
+import '../styles/index.css';
+const kirill1 = new URL('../image/kirill-pershin-1088404-unsplash.png', import.meta.url);
+const kirill2 = new URL('../image/kirill-pershin-1404681-unsplash.png', import.meta.url);
+const kirill3 = new URL('../image/kirill-pershin-1556355-unsplash.png', import.meta.url);
+
 const page = document.querySelector('.page');
 const profileEditButton = page.querySelector('.profile__button');
 const addButton = page.querySelector('.profile__add-button');
@@ -10,10 +15,7 @@ const AddCloseButton = page.querySelector('.AddFormClose');
 const AddSaveButton = page.querySelector('.AddFormSave');
 const imageCloseButton = page.querySelector('.imageFormClose')
 const heartButtons = page.querySelectorAll('.element__heart');
-const trashButton = page.querySelectorAll('.element__bin')
-const profile_info = page.querySelector('.profile__info');
 const elements = page.querySelector('.elements');
-const element = page.querySelectorAll('.element');
 const image = page.querySelectorAll('.buttonImage')
 const fullImage = page.querySelector('.fullImage');
 const FormAdd = document.forms.FormAdd;
@@ -22,29 +24,51 @@ const descriptionAdd = page.querySelector(".AddDescription");
 const FormEdit = document.forms.FormEdit;
 const nameEdit = page.querySelector(".editName");
 const descriptionEdit = page.querySelector(".editDescription");
-const inputAdd = page.querySelector('.popup__input');
-const errorMessage = page.querySelectorAll(`.popup__input_error`);
 
 createElements();
 
-profileEditButton.addEventListener('click', openEditForm)
+profileEditButton.addEventListener('click', function () {
+    OpenedPopup(editForm);
+})
 
-editCloseButton.addEventListener('click', closeEditForm)
+editCloseButton.addEventListener('click', function () {
+    ClosePopup(editForm);
+})
+
+addButton.addEventListener('click', function () {
+    OpenedPopup(AddForm);
+})
+
+AddCloseButton.addEventListener('click', function () {
+    ClosePopup(AddForm);
+})
 
 FormEdit.addEventListener('submit', function (evt) {
     evt.preventDefault();
     editProfile()
 });
 
-function openEditForm() {
-    overlay.classList += " _opened"
-    editForm.classList += " popup__opened"
+function ClosePopup(popup) {
+    popup.classList.remove("popup__opened")
+    overlay.classList.remove("_opened")
 }
 
-function closeEditForm() {
-    overlay.classList.remove("_opened")
-    editForm.classList.remove("popup__opened")
+function OpenedPopup(popup) {
+    overlay.classList += " _opened"
+    popup.classList += " popup__opened"
 }
+
+page.addEventListener('keydown', (evt) => {
+    if (evt.key === "Escape") {
+        ClosePopup(AddForm);
+        FormAdd.reset();
+        AddsetSubmitButtonState(false);
+
+        ClosePopup(editForm);
+        FormEdit.reset();
+        EditsetSubmitButtonState(false);
+    }
+})
 
 function editProfile() {
     const name = page.querySelector('.editName');
@@ -53,13 +77,11 @@ function editProfile() {
     const subtitle = page.querySelector('.profile__subtitle')
     title.textContent = name.value;
     subtitle.textContent = description.value;
+
     FormEdit.reset();
     EditsetSubmitButtonState(false);
+    ClosePopup(editForm);
 }
-
-addButton.addEventListener('click', openAddForm)
-
-AddCloseButton.addEventListener('click', closeAddForm)
 
 FormAdd.addEventListener('submit', function (evt) {
     evt.preventDefault();
@@ -71,16 +93,6 @@ FormAdd.addEventListener('submit', function (evt) {
     FormAdd.reset();
     AddsetSubmitButtonState(false);
 })
-
-function openAddForm() {
-    overlay.classList += " _opened"
-    AddForm.classList += " popup__opened"
-}
-
-function closeAddForm() {
-    overlay.classList.remove("_opened")
-    AddForm.classList.remove("popup__opened")
-}
 
 function addProfile(nameValue, descriptionValue) {
     const elementTamplate = page.querySelector('.element-template').content;
@@ -99,12 +111,16 @@ function addProfile(nameValue, descriptionValue) {
         element.addEventListener('click', openImageForm);
     })
     elements.prepend(elementEl);
+    ClosePopup(AddForm);
 }
 
 FormAdd.addEventListener('input', function (evt) {
-    if (nameAdd.value.length > 0 && descriptionAdd.value.length > 0) 
-    {
-        AddsetSubmitButtonState(true)
+    if (nameAdd.value.length > 0 && descriptionAdd.value.length > 0) {
+        if (nameAdd.validity.valid && descriptionAdd.validity.valid) {
+            AddsetSubmitButtonState(true)
+        } else {
+            AddsetSubmitButtonState(false)
+        }
     } else {
         AddsetSubmitButtonState(false)
     }
@@ -112,7 +128,11 @@ FormAdd.addEventListener('input', function (evt) {
 
 FormEdit.addEventListener('input', function (evt) {
     if (nameEdit.value.length > 0 && descriptionEdit.value.length > 0) {
-        EditsetSubmitButtonState(true)
+        if (nameEdit.validity.valid && descriptionEdit.validity.valid) {
+            EditsetSubmitButtonState(true)
+        } else {
+            EditsetSubmitButtonState(false)
+        }
     } else {
         EditsetSubmitButtonState(false)
     }
@@ -135,12 +155,6 @@ function EditsetSubmitButtonState(isFormValid) {
     } else {
         editSaveButton.setAttribute('disabled', true);
         editSaveButton.classList += ' _disabled';
-    }
-}
-
-function removeElement(event) {
-    if (event.target.classList.contains('element__bin')) {
-        event.currentTarget.remove();
     }
 }
 
@@ -176,15 +190,15 @@ function createElements() {
         const elementEl = elementTamplate.querySelector('.element').cloneNode(true);
         if (i % 3 === 1) {
             nameCreate = "Карачаевск";
-            srcCreate = "./image/kirill-pershin-1088404-unsplash.png";
+            srcCreate = kirill1;
         }
         if (i % 3 === 2) {
             nameCreate = "Гора Эльбрус";
-            srcCreate = "./image/kirill-pershin-1404681-unsplash.png";
+            srcCreate = kirill2;
         }
         if (i % 3 === 0) {
             nameCreate = "Домбай";
-            srcCreate = "./image/kirill-pershin-1556355-unsplash.png";
+            srcCreate = kirill3;
         }
         elementEl.querySelector('.element__title').textContent = nameCreate;
         elementEl.querySelector('.element__image').src = srcCreate;

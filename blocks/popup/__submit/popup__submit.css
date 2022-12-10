@@ -1,4 +1,4 @@
-.popup__save {
+.popup__submit {
     background-color: #000000;
     color: white;
     border: 1px solid #000000;
@@ -19,11 +19,11 @@
     cursor: pointer;
 }
 
-.popup__save:hover {
+.popup__submit:hover {
     opacity: 0.8;
 }
 
-.popup__save._disabled {
+.popup__submit._disabled {
     cursor: default;
     color: rgba(0, 0, 0, 0.15);
     background-color: white;
